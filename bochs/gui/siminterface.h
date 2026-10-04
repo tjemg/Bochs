@@ -716,6 +716,9 @@ public:
   // return 1 if device is connected to the AGP slot
   virtual bool is_agp_device(const char *name) {return 0;}
   virtual bool debugger_active() {return false;}
+  // runtime activation of the internal debugger (break if already active)
+  virtual bool debugger_activation_allowed() {return false;}
+  virtual void request_debugger_activation(const char *reason) {}
 #if BX_DEBUGGER
   // for debugger: same behavior as pressing control-C
   virtual void debug_break() {}
